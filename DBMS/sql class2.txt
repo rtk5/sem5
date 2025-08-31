@@ -1,0 +1,102 @@
+ \connect root@localhost
+
+ SHOW DATABASES;
+
+USE company1;
+
+INSERT INTO employee  VALUES ("Arti","H","Sharma","1234","2005-03-23","#fefefefe","F","30000","234323","2");
+
+ SHOW TABLES;
+
+SELECT * FROM employee;
+
+update employee set salary = salary*1.1 where gender='F';
+
+delete from employee where gender='M';
+
+
+
+
+Execution time : C/C++ within 1 seconds, Java within 2 seconds, Python within 3 seconds for maximum 10 test cases
+Memory : maximum 256MB is available for heap, global, and static combined (Note that maximum 1MB is available for stack)
+Submission : 10 times
+Evaluation criteria : The number of correct test cases  
+ 
+ 
+Default code will be given for the language you are using (C/C++, Java, Python).
+Refer to this sample code to learn how to handle the input for your code and to acquaint the matters that require attention of the language you are using.
+This is for your convenience, so you can freely modify or erase the content.  
+ 
+ 
+※ For C/C++ language, if you use printf() function for your output, you must call
+setbuf(stdout, 0); to get partial points when your solution gets time out.
+(information about calling setbuf() function is included in the default code)
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+A monotone increasing sequence is given like below. f(n) = a*n+b*n*floor(log base 2 (n))+c*n^3 , the sequence index is an integer that starts with 1.
+
+ 
+Here,  means, taking the log to the base 2 and round the value down.
+Thus, if  is 1, the value is 0,
+      if  is 2-3, the value is 1,
+      if  is 4-7,the value is 2,
+      if  is 8-15, the value is 3.
+
+When an integer is given, the element's position of the integer in the sequence has to be determined.
+For instance, if, for the above sequence, , is given, the sequence will be .
+If we enumerate the sequence, beginning with its first element, the enumeration will be 3, 14, 36, 80, 145, and so on.
+12,167,000,368,000 is the 23,000th element of this sequence. 12,168,000,000,000 is not an element in this sequence. 
+ 
+Like the above, given  and a positive integer k, write a program that finds out the position of integer k in the sequence.
+If k does not belong to this sequence, you can prove that. Also, the answer will not go above the position .
+
+The positive integer k will be given within the range that can be expressed with 56bits and the three given integers, , each one of them does not exceed 100.
+ 
+Note: This problem does not require from you to solve the equation, but requires you to solve this problem from an efficient search standpoint. 
+In order to handle the integer which is expressed by 56bits, 64bits integer data types within the program have to be used.  
+To do so, when using C/C++ language, you have to use “long long” data type and when using Java language, use “long” data type.  
+
+[Input]
+10 test cases will be given throughout 10 lines with each test case consisting of one line. Each test case will give the coefficients, , and the positive integer k in order.
+Between each number a space will be left. Coefficient  is either 1 or greater than 1,  is either 1 or greater than 1, and  is either 0 or greater than 0.
+
+- Test case 1-2: will be , the answer does not exceed 1,000
+- Test case 3-4: will be , the answer does not exceed 1,000,000
+- Test case 5-10: no restrictions
+If you simply approach by calculating  in order, you will get partial scores.
+However, in order to get the perfect score, a more efficient approach is needed.
+
+[Output]
+Print out each test case answers, one test case in one line (total 10 lines). Start each line with ‘#x’ where ‘x’ is the test case number, leave a space and then write the answer.
+Find out the element’s position the integer k is in the applicable sequence. If k is an element which does not exist in the sequence, simply write 0.  
+
+[Sample Input/Output]
+Input
+ 
+2 1 1 12167000368000
+2 1 1 1880000000
+2 1 1 12168587437017
+7 3 0 119753085330
+...
+ 
+Output
+#1 23000
+#2 0
+#3 23001
+#4 1234567890
+...
+ 
+Sample Input :  sample_input copy     
+1 1 0 861
+1 1 0 721
+5 9 0 860608
+14 19 0 24638004
+5 8 0 210115785
+81 12 0 8192945703123
+16 2 0 612158099651800
+13 7 0 167155674009324
+73 41 1 14679146125920
+12 43 72 2984953283617
+
