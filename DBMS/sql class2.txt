@@ -1,0 +1,44 @@
+ \connect root@localhost
+
+ SHOW DATABASES;
+
+USE company1;
+
+INSERT INTO employee  VALUES ("Arti","H","Sharma","1234","2005-03-23","#fefefefe","F","30000","234323","2");
+
+ SHOW TABLES;
+
+SELECT * FROM employee;
+
+update employee set salary = salary*1.1 where gender='F';
+
+delete from employee where gender='M';
+
+
+
+new db
+
+in workbench
+create schema comp;
+use comp;
+//put rest of code
+then run query
+
+in shell
+USE comp;
+show databases;
+select * from employee;
+ select count(*) from employee;
+
+select count(*) as TotEmp from employee;
+ SELECT COUNT(*) AS TotEmp, SUM(DISTINCT salary) AS TotalSal FROM employee;
+
+SELECT Pno, SUM(hours)
+FROM works_on
+GROUP BY Pno;
+
+
+select Fname, Salary, Dname from employee NATURAL JOIN department;
+
+select Fname, ssn, salary, Dname from employee INNER JOIN department on employee.ssn = department.Mgr_ssn;
+
